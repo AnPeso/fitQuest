@@ -11,15 +11,14 @@ import {
   Alert,
   StyleSheet,
 } from "react-native";
-import {
-  ExerciseTopDisplay,
-  About,
-  Footer,
-  Tabs,
-} from "../../components";
+import ExerciseTopDisplay from '../../components/ExerciseTopDisplay/ExerciseTopDisplay';
+import { default as Tabs } from "../../components/tabs/Tabs";
+import { default as About } from "../../components/about/About";
+import { default as Footer } from "../../components/footer/Footer";
 import ScreenHeaderBtn from '../../components/ScreenHeaderBtn';
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetch from "../../hook/useFetch";
+
 
 const tabs = ["About", "Instructions"];
 
