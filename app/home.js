@@ -4,9 +4,10 @@ import { COLORS, SIZES } from "../constants/theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ScreenHeaderBtn from "../components/ScreenHeaderBtn";
 import Welcome from "../components/Welcome";
-import PopularMeditation from "../components/PopularMeditation";
-import DailyMeditation from "../components/DailyMeditation";
+import PopularExercise from "../components/PopularExercise";
+import DailyExercise from "../components/DailyExercise";
 import DailyQuote from "../components/DailyQuote";
+
 const Home = () => {
     const [userDetails, setUserDetails] = useState(null);
   useEffect(() => {
@@ -32,8 +33,8 @@ const Home = () => {
         >
 <Welcome userDetails={userDetails ? JSON.parse(userDetails) : null} />
 <DailyQuote/>
-<PopularMeditation />
-<DailyMeditation/>
+<PopularExercise />
+<DailyExercise/>
 </View>
       </ScrollView>
     </SafeAreaView>

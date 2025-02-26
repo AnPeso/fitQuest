@@ -1,5 +1,5 @@
 import { Image, TouchableOpacity, StyleSheet } from "react-native";
-import { View } from "react-native-web"; // Use "react-native" instead if this is not web-based.
+import { View } from "react-native"; // Use "react-native" instead if this is not web-based.
 import { COLORS, SIZES } from "../constants/theme";
 import icons from "../constants/icons";
 import { useRouter } from "expo-router";

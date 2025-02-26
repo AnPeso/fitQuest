@@ -12,7 +12,7 @@ import {
   StyleSheet,
 } from "react-native";
 import {
-  MeditationTopDisplay,
+  ExerciseTopDisplay,
   About,
   Footer,
   Tabs,
@@ -80,7 +80,7 @@ const MeditationDetails = () => {
           <Text>No data available</Text>
         ) : (
           <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
-            <MeditationTopDisplay
+            <ExerciseTopDisplay
               meditationImage={meditationItem.image}
               meditationTitle={meditationItem.title}
               duration={meditationItem.duration}

@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, FONT, SIZES } from "../../constants";
-import DailyMeditation from "../../components/DailyMeditation";
+import DailyExercise from "../../components/DailyExercise";
 import { useFocusEffect } from "expo-router";
 import ScreenHeaderBtn from '../../components/ScreenHeaderBtn';
 
@@ -47,7 +47,7 @@ const Favourites = () => {
           ) : (
             <>
               <Text style={{ textAlign: "center", color: "#FF4500", fontWeight: "bold" }}>My Favourite Exercises</Text>
-              <DailyMeditation meditations={favorites} />
+              <DailyExercise meditations={favorites} />
             </>
           )}
         </View>

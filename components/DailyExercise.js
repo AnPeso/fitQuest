@@ -11,7 +11,7 @@ import {
 import { COLORS, FONT, SIZES, SHADOWS } from "../constants/theme";
 import useFetch from "../hook/useFetch";
 
-const DailyMeditation = ({ meditations }) => {
+const DailyExercise = ({ meditations }) => {
   const router = useRouter();
 
   const { isLoading, error, bestMeditations } = useFetch("search", {
@@ -70,7 +70,7 @@ const DailyMeditation = ({ meditations }) => {
   );
 };
 
-export default DailyMeditation;
+export default DailyExercise;
 
 const styles = StyleSheet.create({
   container: {

@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import useFetch from "../hook/useFetch";
 
-const PopularMeditation = () => {
+const PopularExercise = () => {
     const router = useRouter();
     const { data, isLoading, error } = useFetch("search", {
       query: "meditation",
@@ -176,4 +176,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default PopularMeditation;
+export default PopularExercise;

@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import { ActivityIndicator, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ThemeProvider } from "../context/ThemeProvider";
+import ScreenHeaderBtn from '../components/ScreenHeaderBtn';
 
 export const unstable_settings = {
   initialRouteName: "login",
@@ -13,11 +14,11 @@ export const unstable_settings = {
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [fontsLoaded] = useFonts({
-    DMBold: require("../assets/fonts/DMSans-Bold.ttf"),
-    DMMedium: require("../assets/fonts/DMSans-Medium.ttf"),
-    DMRegular: require("../assets/fonts/DMSans-Regular.ttf"),
-  });
+  // const [fontsLoaded] = useFonts({
+  //   DMBold: require("../assets/fonts/DMSans-Bold.ttf"),
+  //   DMMedium: require("../assets/fonts/DMSans-Medium.ttf"),
+  //   DMRegular: require("../assets/fonts/DMSans-Regular.ttf"),
+  // });
 
   useEffect(() => {
     const checkLoginState = async () => {
@@ -34,7 +35,7 @@ const Layout = () => {
     checkLoginState();
   }, []);
 
-  if (isLoading || !fontsLoaded) {
+  if (isLoading /* || !fontsLoaded */) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <ActivityIndicator size="large" />

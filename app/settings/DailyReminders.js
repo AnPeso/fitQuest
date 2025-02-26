@@ -10,6 +10,7 @@ import * as Notifications from "expo-notifications";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { COLORS, SIZES } from "../../constants";
 import { useTheme } from "../../context/ThemeProvider";
+import ScreenHeaderBtn from '../../components/ScreenHeaderBtn';
 
 const DailyReminders = () => {
   const { theme } = useTheme();
