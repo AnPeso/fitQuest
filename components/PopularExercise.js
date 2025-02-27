@@ -22,7 +22,7 @@ const PopularExercise = () => {
     const [selectedMeditation, setSelectedMeditation] = useState();
 
     const handleCardPress = (item) => {
-        router.push(`/meditation-details/${item.id}`);
+        router.push(`/exercise-details/${item.id}`);
         setSelectedMeditation(item.id);
     };
 
@@ -91,11 +91,12 @@ const styles = StyleSheet.create({
         padding: SIZES.xLarge,
         marginHorizontal: SIZES.small,
         marginTop: SIZES.xLarge,
-        backgroundColor: selectedMeditation === item.id ? COLORS.primary : "#FFF",
+        backgroundColor: selectedMeditation === item.id ? COLORS.darkText : "#FFF",
         borderRadius: SIZES.medium,
         justifyContent: "space-between",
         ...SHADOWS.medium,
         shadowColor: COLORS.white,
+
     }),
     header: {
         flexDirection: "row",
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: SIZES.large,
         fontFamily: FONT.medium,
-        color: COLORS.primary,
+        color: COLORS.dark,
     },
     headerBtn: {
         fontSize: SIZES.medium,
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     meditationName: (selectedMeditation, item) => ({
         fontSize: SIZES.large,
         fontFamily: FONT.medium,
-        color: selectedMeditation === item.id ? COLORS.white : COLORS.primary,
+        color: selectedMeditation === item.id ? COLORS.white : COLORS.darkText,
     }),
     infoWrapper: {
         flexDirection: "row",

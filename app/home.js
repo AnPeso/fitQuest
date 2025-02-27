@@ -20,14 +20,13 @@ const Home = () => {
   };
     return (
      <>
-  <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+  <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite}}>
      <ScreenHeaderBtn/>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}  >
         <View
           style={{
             flex: 1,
             padding: SIZES.medium,
-            
           }}
           testID="screensDisplay"
         >

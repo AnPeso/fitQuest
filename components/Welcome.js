@@ -11,7 +11,7 @@ const Welcome = ({ userDetails }) => {
         <View>
             <View style={styles.container} testID="styles.container">
                 <Text style={styles.userName}>Hello {userDetails?.userName}!</Text>
-                <Text style={styles.welcomeMessage}>Find your perfect meditation</Text>
+                <Text style={styles.welcomeMessage}>Ready to move, challenge yourself and have fun?</Text>
             </View>
         </View>
     );
@@ -25,13 +25,13 @@ const styles = StyleSheet.create({
         fontFamily: FONT.regular,
         fontSize: SIZES.large,
         color: COLORS.secondary,
-        marginTop: 60,
+       // marginTop: 60,
         
     },
     welcomeMessage: {
         fontFamily: FONT.bold,
         fontSize: SIZES.xLarge,
-        color: COLORS.primary,
+        color: COLORS.darkText,
         marginTop:2,
     },
     searchContainer: {

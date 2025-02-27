@@ -20,7 +20,7 @@ const DailyExercise = ({ meditations }) => {
   });
 
   const handleNavigate = (id) => {
-    router.push(`/meditation-details/${id}`);
+    router.push(`/exercise-details/${id}`);
   };
 
   const data = meditations || bestMeditations;
@@ -75,7 +75,7 @@ export default DailyExercise;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: SIZES.xLarge,
+    marginTop: SIZES.xxLarge,
   },
   header: {
     flexDirection: "row",
@@ -122,6 +122,6 @@ const styles = StyleSheet.create({
   meditationName: {
     fontSize: SIZES.medium,
     fontFamily: "DMBold",
-    color: COLORS.primary,
+    color: COLORS.darkText,
   },
 });

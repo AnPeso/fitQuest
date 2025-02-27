@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         position: 'absolute',
-        top: 1, // Lisää marginaalia ylhäältä
+       // top: 1, // Lisää marginaalia ylhäältä
         //left: 2, // Lisää marginaalia vasemmalta
        //resizeMode: 'contain',
     },
@@ -45,16 +45,17 @@ const styles = StyleSheet.create({
     image: {
         width: 35,
         height: 35,
+        marginLeft: 2,
        resizeMode: 'contain',
     },
     btnContainer: {
-        width: 40,
-        height: 40,
-        //backgroundColor: COLORS.white,
+        width: 105,
+        height: 105,
+        backgroundColor: COLORS.white,
         borderRadius: SIZES.small / 1.25,
         justifyContent: "center",
         alignItems: "center",
-        marginHorizontal: 5,
+        marginHorizontal: 1,
     },
 });
 
