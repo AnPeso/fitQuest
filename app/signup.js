@@ -39,18 +39,17 @@ const SignUp = () => {
                     headerTitle: "",
                 }}
             />
-            <View style={{ padding: 20 }} testID="signupContainer">
+            <View style={{ padding: 2, flex:1 }} testID="signupContainer">
                 <View
                     style={{
-                        //padding: 20,
-                       // marginLeft: "auto",
-                       // marginRight: "auto",
-                       // backgroundColor: "#f0f0f0",
-                       // borderRadius: 50,
-                       // height: 90,
+                        padding: 20,
+                       marginLeft: "auto",
+                       marginRight: "auto",
+                       borderRadius: 50,
+                       height: 260,
                        // ...SHADOWS.medium,
                         //shadowColor: COLORS.white,
-                        flex:1,
+                        flex:0.5,
            justifyContent: 'center',
            alignItems: 'center'
                     }}
@@ -59,11 +58,11 @@ const SignUp = () => {
                     <Image
                         source={icons.menu}
                         style={{
-                              width: 180,
-              height: 180,
-              marginBottom: 20,
-              marginTop: 30,
-              borderRadius:50
+                            width: 250,
+                            height: 250,
+                            marginBottom: 20,
+                            marginTop: 20,
+                           borderRadius:50
                         }}
                     />
                 </View>
@@ -71,11 +70,15 @@ const SignUp = () => {
                     <View style={{ marginBottom: 10 }} testID="userName">
                         <TextInput
                             style={{
-                                borderColor: "#ccc",
                                 borderWidth: 1,
+                                borderColor: "#ccc",
                                 padding: 10,
                                 borderRadius: 5,
-                                marginBottom: 10,
+                                 marginBottom: 15,
+                                flexDirection: "horizontal",
+                                marginLeft: "auto",
+                                marginRight: "auto",
+                                width: "98%",
                             }}
                             value={userName}
                             onChangeText={setUserName}

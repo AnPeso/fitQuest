@@ -51,18 +51,17 @@ const Login = () => {
           headerTitle: "",
         }}
       />
-      <View style={{ padding: 20 }}>
+      <View style={{ flex: 1, padding:2}}>
         <View
           style={{
-           // padding: 20,
-          //  marginLeft: "auto",
-           // marginRight: "auto",
-           // backgroundColor: "#f0f0f0",
-           // borderRadius: 50,
-           // height: 90,
+           padding: 20,
+           marginLeft: "auto",
+           marginRight: "auto",
+            borderRadius: 50,
+            height: 260,
            // ...SHADOWS.medium,
            // shadowColor: COLORS.white,
-           flex:1,
+          flex:0.5,
            justifyContent: 'center',
            alignItems: 'center'
           }}
@@ -70,17 +69,17 @@ const Login = () => {
           <Image
             source={icons.menu}
             style={{
-              width: 180,
-              height: 180,
-              marginBottom: 20,
-              marginTop: 30,
-              borderRadius:50
+             width: 250,
+             height: 250,
+             marginBottom: 20,
+             marginTop: 20,
+            borderRadius:50
             }}
           />
         </View>
 
         {/* Form Component */}
-        <View style={{ marginTop: 20 }}>
+        <View style={{ marginTop: "10%", padding: 10 }}>
           <View style={{ marginBottom: 20 }}>
             <TextInput
               style={{
@@ -88,7 +87,11 @@ const Login = () => {
                 borderColor: "#ccc",
                 padding: 10,
                 borderRadius: 5,
-                marginBottom: 10,
+               marginBottom: 15,
+                flexDirection: "horizontal",
+                marginLeft: "auto",
+                marginRight: "auto",
+                width: "98%",
               }}
               value={email}
               onChangeText={setEmail}
@@ -100,7 +103,11 @@ const Login = () => {
                 borderColor: "#ccc",
                 padding: 10,
                 borderRadius: 5,
-                marginBottom: 10,
+               marginBottom: 15,
+                flexDirection: "horizontal",
+                marginLeft: "auto",
+                marginRight: "auto",
+                width: "98%",
               }}
               value={password}
               secureTextEntry={true}
@@ -128,6 +135,11 @@ const Login = () => {
             justifyContent: "center",
             alignItems: "center",
             margin: 10,
+            border:1,
+            padding:5,
+            borderRadius:5,
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           <Text style={{ marginRight: 5 }}>

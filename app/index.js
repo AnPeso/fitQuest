@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Redirect } from "expo-router";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, View } from "react-native-web";
+import { ActivityIndicator, View } from "react-native";
 
 export default function Index() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
