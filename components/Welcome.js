@@ -19,19 +19,20 @@ const Welcome = ({ userDetails }) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: "100%",
-        height: "80%"
+        flex:1
     },
     userName: {
         fontFamily: FONT.regular,
         fontSize: SIZES.large,
         color: COLORS.secondary,
+        marginTop: 60,
+        
     },
     welcomeMessage: {
         fontFamily: FONT.bold,
         fontSize: SIZES.xLarge,
         color: COLORS.primary,
-        marginTop: 2,
+        marginTop:2,
     },
     searchContainer: {
         justifyContent: "center",

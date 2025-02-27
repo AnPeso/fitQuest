@@ -21,7 +21,7 @@ const Settings = () => {
     {
       id: 2,
       title: "My Favourites",
-      icon: "https://cdn-icons-png.flaticon.com/512/2932/2932360.png",
+      icon: "https://cdn-icons-png.flaticon.com/128/1760/1760961.png",
       target: "Mental Health",
       route: "Favourites",
     },
@@ -81,6 +81,7 @@ const Settings = () => {
                   fontFamily: FONT.regular,
                   fontSize: SIZES.large,
                   color: COLORS.secondary,
+                  marginTop: 60
                 }}
               >
                 Hello {JSON.parse(userDetails).userName}!

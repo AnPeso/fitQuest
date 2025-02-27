@@ -54,22 +54,27 @@ const Login = () => {
       <View style={{ padding: 20 }}>
         <View
           style={{
-            padding: 20,
-            marginLeft: "auto",
-            marginRight: "auto",
-            backgroundColor: "#f0f0f0",
-            borderRadius: 50,
-            height: 90,
-            ...SHADOWS.medium,
-            shadowColor: COLORS.white,
+           // padding: 20,
+          //  marginLeft: "auto",
+           // marginRight: "auto",
+           // backgroundColor: "#f0f0f0",
+           // borderRadius: 50,
+           // height: 90,
+           // ...SHADOWS.medium,
+           // shadowColor: COLORS.white,
+           flex:1,
+           justifyContent: 'center',
+           alignItems: 'center'
           }}
         >
           <Image
             source={icons.menu}
             style={{
-              width: 50,
-              height: 50,
+              width: 180,
+              height: 180,
               marginBottom: 20,
+              marginTop: 30,
+              borderRadius:50
             }}
           />
         </View>
