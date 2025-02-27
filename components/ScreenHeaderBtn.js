@@ -11,7 +11,7 @@ const ScreenHeaderBtn = ({ detailPage, handleShare }) => {
     return (
         <View style={styles.btn}>
             <TouchableOpacity style={styles.btnContainer} onPress={() => router.push("/home")}>
-                <Image source={icons.menu} style={styles.image} />
+                <Image source={icons.menu} style={styles.logo} />
             </TouchableOpacity>
             {detailPage ? (
                 <TouchableOpacity style={styles.btnContainer} onPress={handleShare}>
@@ -27,6 +27,14 @@ const ScreenHeaderBtn = ({ detailPage, handleShare }) => {
 };
 
 const styles = StyleSheet.create({
+    logo: {
+        width: 100,
+        height: 100,
+        position: 'absolute',
+        top: 1, // Lisää marginaalia ylhäältä
+        //left: 2, // Lisää marginaalia vasemmalta
+       //resizeMode: 'contain',
+    },
     btn: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -35,14 +43,14 @@ const styles = StyleSheet.create({
         width: '100vw',
     },
     image: {
-        width: 30,
-        height: 30,
-        resizeMode: 'contain',
+        width: 35,
+        height: 35,
+       resizeMode: 'contain',
     },
     btnContainer: {
         width: 40,
         height: 40,
-        backgroundColor: COLORS.white,
+        //backgroundColor: COLORS.white,
         borderRadius: SIZES.small / 1.25,
         justifyContent: "center",
         alignItems: "center",
