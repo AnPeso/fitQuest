@@ -63,7 +63,7 @@ const PopularExercise = () => {
     return (
         <View style={styles.container} testID="popularContainer">
             <View style={styles.header} testID="popularHeader">
-                <Text style={styles.headerTitle}>Popular Meditations</Text>
+                <Text style={styles.headerTitle}>Top challenges</Text>
                 <TouchableOpacity></TouchableOpacity>
             </View>
             <View style={styles.cardsContainer}>
