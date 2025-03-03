@@ -2,26 +2,28 @@ import { useState, useEffect } from "react";
 import { useRouter } from "expo-router";
 import { COLORS, FONT, SHADOWS, SIZES } from '../constants/theme';
 import { View, Text, TouchableOpacity, Image, FlatList, ActivityIndicator, StyleSheet } from "react-native";
-import { fetchExercises } from "../hook/fetchExercises";  // Tuodaan fetchExercises-funktio
+import { fetchExercises } from "../hook/fetchExercises";  
 
 const PopularExercise = () => {
   const router = useRouter();
   const [exercises, setExercises] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedExercise, setSelectedExercise] = useState();
+  const [selectedExercise, setSelectedExercise] = useState(null);
 
-  // Ladataan harjoitukset komponentin latautuessa
   useEffect(() => {
     const loadExercises = async () => {
       try {
-        const data = await fetchExercises();  // Haetaan harjoitustiedot
-        setExercises(data);
-        setIsLoading(false);
+        const data = await fetchExercises();
+        if (data && Array.isArray(data)) {
+          setExercises(data);
+        } else {
+          setError("Invalid data format");
+        }
       } catch (error) {
         setError("Something went wrong");
-        setIsLoading(false);
       }
+      setIsLoading(false);
     };
     loadExercises();
   }, []);
@@ -36,30 +38,30 @@ const PopularExercise = () => {
       style={styles.container(selectedExercise, item)}
       onPress={() => handleCardPress(item)}
     >
-      <TouchableOpacity style={styles.logoContainer(selectedExercise, item)}>
+      <View style={styles.logoContainer(selectedExercise, item)}>
         <Image
-          source={{ uri: item.gifUrl }}
+          source={{ uri: item?.gifUrl || "" }}
           resizeMode="cover"
           style={styles.logoImage}
         />
-      </TouchableOpacity>
+      </View>
       <View style={styles.tabsContainer}>
         <Text style={styles.location} numberOfLines={1}>
-          {item.bodyPart || "Unknown"} {/* Varmistus ettei ole tyhjä */}
+          {item?.bodyPart || "Unknown"}
         </Text>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.exerciseName(selectedExercise, item)} numberOfLines={1}>
-          {item.name || "No Name"} {/* Varmistus */}
+          {item?.name || "No Name"}
         </Text>
         <View style={styles.infoWrapper}>
           <Text style={styles.publisher(selectedExercise, item)}>
-            {item.target || "No Target"} {/* Varmistus */}
+            {item?.target || "No Target"}
           </Text>
         </View>
       </View>
       <Text style={styles.location} numberOfLines={4}>
-        {item.instructions ? item.instructions : "No instructions available"} {/* Varmistus */}
+        {item?.instructions || "No instructions available"}
       </Text>
     </TouchableOpacity>
   );
@@ -69,18 +71,18 @@ const PopularExercise = () => {
       <View style={styles.header} testID="popularHeader">
         <Text style={styles.headerTitle}>Top Exercises</Text>
         <TouchableOpacity>
-          <Text style={styles.headerTitle}>See All</Text> {/* Lisätty <Text> ympärille */}
+          <Text style={styles.headerTitle}>See All</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.cardsContainer}>
         {isLoading ? (
           <ActivityIndicator size="large" color={COLORS.primary} />
         ) : error ? (
-          <Text>{error}</Text>
+          <Text style={styles.error}>{error}</Text>
         ) : (
           <FlatList
-            data={exercises}
-            keyExtractor={(item) => item.id?.toString() || Math.random().toString()}  // Varmistetaan, että on uniikki avain
+            data={exercises ?? []}
+            keyExtractor={(item) => (item?.id ? item.id.toString() : Math.random().toString())}
             renderItem={renderExerciseCard}
             contentContainerStyle={{ columnGap: SIZES.medium }}
             horizontal
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
     padding: SIZES.xLarge,
     marginHorizontal: SIZES.small,
     marginTop: SIZES.xLarge,
-    backgroundColor: selectedExercise === item.id ? COLORS.darkText : "#FFF",
+    backgroundColor: selectedExercise === item?.id ? COLORS.darkText : "#FFF",
     borderRadius: SIZES.medium,
     justifyContent: "space-between",
     ...SHADOWS.medium,
@@ -140,24 +142,13 @@ const styles = StyleSheet.create({
     marginTop: SIZES.medium,
     width: "100%",
   },
-  companyName: {
-    fontSize: SIZES.small,
-    fontFamily: FONT.regular,
-    color: "#B3AEC6",
-    marginTop: SIZES.small / 1.5,
-    paddingVertical: SIZES.small / 2.5,
-    paddingHorizontal: SIZES.small,
-    borderRadius: SIZES.medium,
-    borderWidth: 1,
-    borderColor: COLORS.gray2,
-  },
   infoContainer: {
     marginTop: SIZES.large,
   },
   exerciseName: (selectedExercise, item) => ({
     fontSize: SIZES.large,
     fontFamily: FONT.medium,
-    color: selectedExercise === item.id ? COLORS.white : COLORS.darkText,
+    color: selectedExercise === item?.id ? COLORS.white : COLORS.darkText,
   }),
   infoWrapper: {
     flexDirection: "row",
@@ -168,7 +159,7 @@ const styles = StyleSheet.create({
   publisher: (selectedExercise, item) => ({
     fontSize: SIZES.medium - 2,
     fontFamily: FONT.regular,
-    color: selectedExercise === item.id ? COLORS.white : COLORS.primary,
+    color: selectedExercise === item?.id ? COLORS.white : COLORS.primary,
   }),
   location: {
     fontSize: SIZES.medium - 2,
@@ -180,6 +171,8 @@ const styles = StyleSheet.create({
     color: COLORS.red,
     fontFamily: FONT.regular,
     fontSize: SIZES.medium,
+    textAlign: "center",
+    marginTop: SIZES.large,
   },
 });
 
