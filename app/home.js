@@ -6,6 +6,7 @@ import ScreenHeaderBtn from "../components/ScreenHeaderBtn";
 import Welcome from "../components/Welcome";
 import Exercises from "../components/Exercises";
 import DailyQuote from "../components/DailyQuote";
+import PopularExercise from "../components/PopularExercise";
 
 const Home = () => {
     const [userDetails, setUserDetails] = useState(null);
@@ -31,6 +32,7 @@ const Home = () => {
         >
 <Welcome userDetails={userDetails ? JSON.parse(userDetails) : null} />
 <DailyQuote/>
+<PopularExercise />
 <Exercises/>
 </View>
       </ScrollView>

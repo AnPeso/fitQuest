@@ -9,7 +9,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 contextText: {
-    textAlign: 'justify'
+    marginTop: SIZES.small / 2,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   logoBox: {
     width: "100%",
@@ -40,9 +43,9 @@ contextText: {
     justifyContent: "center",
     alignItems: "center",
   },
-  meditationName: {
+  headText: {
     fontSize: SIZES.medium - 2,
-    color: COLORS.primary,
+    color: COLORS.darkText,
     fontFamily: FONT.medium,
   },
   durationBox: {
