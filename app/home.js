@@ -4,8 +4,7 @@ import { COLORS, SIZES } from "../constants/theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ScreenHeaderBtn from "../components/ScreenHeaderBtn";
 import Welcome from "../components/Welcome";
-import PopularExercise from "../components/PopularExercise";
-import DailyExercise from "../components/DailyExercise";
+import Exercises from "../components/Exercises";
 import DailyQuote from "../components/DailyQuote";
 
 const Home = () => {
@@ -32,8 +31,7 @@ const Home = () => {
         >
 <Welcome userDetails={userDetails ? JSON.parse(userDetails) : null} />
 <DailyQuote/>
-<PopularExercise />
-<DailyExercise/>
+<Exercises/>
 </View>
       </ScrollView>
     </SafeAreaView>
