@@ -40,7 +40,7 @@ const PopularExercise = () => {
        />
 </TouchableOpacity>
 <View style={styles.tabsContainer}>
-<Text style={styles.companyName} numberOfLines={1}>
+<Text style={styles.location} numberOfLines={1}>
          {item.bodyPart} {/* Lihasryhmä */}
 </Text>
 </View>
@@ -53,11 +53,11 @@ const PopularExercise = () => {
 </Text>
 <View style={styles.infoWrapper}>
 <Text style={styles.publisher(selectedExercise, item)}>
-           {item.equipment} {/* Välineet */}
+           {item.target} {/* Välineet */}
 </Text>
 </View>
 </View>
-<Text style={styles.location}> {item.instructions}</Text> {/* Ohjeet */}
+<Text style={styles.location} numberOfLines={4}> {item.instructions}</Text> {/* Ohjeet */}
 </TouchableOpacity>
  );
  return (
@@ -102,7 +102,8 @@ const styles = StyleSheet.create({
    alignItems: "center",
  },
  headerTitle: {
-   fontSize: SIZES.large,
+   fontSize: SIZES.xLarge,
+   margin: 2,
    fontFamily: FONT.medium,
    color: COLORS.dark,
  },

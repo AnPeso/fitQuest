@@ -118,6 +118,7 @@ const DailyReminders = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: isDarkMode ? COLORS.darkBackground : COLORS.lightWhite }}>
+              <ScreenHeaderBtn />
       <Stack.Screen options={{ headerTitle: "Daily Reminders" }} />
       <ScrollView contentContainerStyle={{ padding: SIZES.medium }}>
         <Calendar

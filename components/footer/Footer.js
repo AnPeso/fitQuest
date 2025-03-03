@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./Footer.style";
-import { icons } from "../../constants";
+import { COLORS, icons } from "../../constants";
 
 const Footer = ({ data }) => {
     const [isFavorite, setIsFavorite] = useState(false);
@@ -44,7 +44,7 @@ const Footer = ({ data }) => {
                     resizeMode="contain"
                     style={[
                         styles.likeBtnImage,
-                        { tintColor: isFavorite ? "red" : "#F37453" },
+                        { tintColor: isFavorite ? "red" : COLORS.primary},
                     ]}
                 />
             </TouchableOpacity>
