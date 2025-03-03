@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, FlatList, StyleSheet, Picker, Image, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 import { useRouter } from "expo-router";  // Import useRouter
 import { fetchExercises } from "../hook/fetchExercises";
 const Exercises = () => {

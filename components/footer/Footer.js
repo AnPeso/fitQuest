@@ -11,7 +11,7 @@ const Footer = ({ data }) => {
         try {
             const favorites = await AsyncStorage.getItem("favorites");
             const favoritesArray = favorites ? JSON.parse(favorites) : [];
-            const isFav = favoritesArray.some((item) => item.id === data.id);
+            const isFav = data ? favoritesArray.some((item) => item.id === data.id) : false;
             setIsFavorite(isFav);
         } catch (error) {
             console.error("Failed to fetch favorites", error);
@@ -34,7 +34,11 @@ const Footer = ({ data }) => {
 
     useEffect(() => {
         checkIfFavorite();
-    }, []);
+    }, [data]);
+
+    if (!data) {
+        return null; // Return null if data is not available
+    }
 
     return (
         <View style={styles.container}>
