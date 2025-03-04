@@ -34,6 +34,7 @@ const DailyQuote = () => {
 };
 const styles = StyleSheet.create({
    container: {
+    flex: 1,
        justifyContent: 'center',
        alignItems: 'center',
        paddingHorizontal: 20,
@@ -52,8 +53,8 @@ const styles = StyleSheet.create({
        fontSize: 20,
        fontStyle: 'italic',
        color: '#333',
-       textAlign: 'center',
-       marginBottom: 10,
+       //textAlign: 'center',
+       //marginBottom: 10,
        fontFamily: 'Georgia', // Choose a more elegant font for the quote
        letterSpacing: 1.2,
    },
