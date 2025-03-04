@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+
+
 const useFetch = () => {
  const [data, setData] = useState([]);
  const [isLoading, setIsLoading] = useState(false);
  const [error, setError] = useState(null);
  const [bestExercises, setBestExercises] = useState([]);
+
  const exerciseData = [
    {
      id: 1,
@@ -133,17 +136,22 @@ const useFetch = () => {
      ]
    }
  ];
+
  useEffect(() => {
-   setIsLoading(true);
-   try {
-     setData(exerciseData);
-     setBestExercises(BestExercises);
-     setIsLoading(false);
-   } catch (err) {
-     setError(err);
-     setIsLoading(false);
-   }
- }, []);
- return { data, isLoading, error, bestExercises };
+    fetchData();
+  }, []);
+
+  const refetch = () => {
+    setIsLoading(true);
+    fetchData();
+  };
+
+  const getItemById = (id) => {
+    const item =
+      exerciseData.find((exercise) => exercise.id === id) ||
+      BestExercises.find((exercise) => exercise.id === id);
+    return item || null;
+  };
+
+  return { data, isLoading, error, refetch, getItemById, bestExercises };
 };
-export default useFetch;

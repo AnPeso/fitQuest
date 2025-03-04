@@ -28,8 +28,11 @@ const ExerciseDetails = () => {
     const id = params.id;
     // Log to check if id is correct
     console.log("Exercise ID:", id);
-    const { data: exercises, isLoading, error } = useFetch();
-    const [activeTab, setActiveTab] = useState(tabs[0]);
+    const { data, isLoading, error, refetch } = useFetch("search", {
+        query: id,
+      });    
+      const ExerciseItem = useFetch().getItemById(parseInt(id, 10));
+      const [activeTab, setActiveTab] = useState(tabs[0]);
     const [refreshing, setRefreshing] = useState(false);
     // Ensure that the exercise is found by matching the title
     const exercise = exercises?.find((exercise) => exercise.title.toLowerCase() === id.toLowerCase());
@@ -52,9 +55,9 @@ const ExerciseDetails = () => {
     const displayTabContent = () => {
       switch (activeTab) {
         case "About":
-          return <About exercise={exercise} />;
+          return <About exercise={exerciseItem} />;
         case "Instructions":
-          return <Text style={styles.contextText}>{exercise?.instructions?.join("\n")}</Text>;
+          return <Text style={styles.contextText}>{exerciseItem.instructions}</Text>;
         default:
           return null;
       }
@@ -70,22 +73,22 @@ const ExerciseDetails = () => {
    <ActivityIndicator size="large" color={COLORS.primary} />
           ) : error ? (
    <Text>Something went wrong</Text>
-          ) : !exercise ? (
-   <Text>No exercise found for the given title</Text>
+) : !exerciseItem || exerciseItem.length === 0 ? (
+    <Text>No exercise found for the given title</Text>
           ) : (
    <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
    <ExerciseTopDisplay
-                exerciseImage={exercise.image}
-                exerciseTitle={exercise.title}
-                duration={exercise.duration}
-                target={exercise.target}
+                exerciseImage={exerciseItem.image}
+                exerciseTitle={exerciseItem.title}
+                duration={exerciseItem.duration}
+                target={exerciseItem.target}
               />
    <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
               {displayTabContent()}
    </View>
           )}
    </ScrollView>
-   <Footer data={exercise} />
+   <Footer data={exerciseItem} />
    </SafeAreaView>
     );
    };
