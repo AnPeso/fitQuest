@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
  SafeAreaView,
- ScrollView,
+ FlatList,
  View,
  Text,
  ActivityIndicator,
  StyleSheet,
- FlatList,
  TouchableOpacity,
  Image,
 } from "react-native";
@@ -14,13 +13,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, FONT, SIZES, SHADOWS } from "../../constants/theme";
 import { useRouter } from "expo-router";
 import ScreenHeaderBtn from '../../components/ScreenHeaderBtn';
-
 const Favourites = () => {
  const [favorites, setFavorites] = useState([]);
  const [isLoading, setIsLoading] = useState(true);
  const router = useRouter();
  const [selectedExercise, setSelectedExercise] = useState(null);
-
  // Ladataan suosikit AsyncStorage:sta
  const loadFavorites = async () => {
    try {
@@ -33,78 +30,59 @@ const Favourites = () => {
      setIsLoading(false);
    }
  };
-
  useEffect(() => {
    loadFavorites();
  }, []);
-
  const handleCardPress = (item) => {
    router.push(`/exercise-details/${item.id}`);
    setSelectedExercise(item.id);
  };
-
  const renderExerciseCard = ({ item }) => (
-   <TouchableOpacity
+<TouchableOpacity
      style={styles.container(selectedExercise, item)}
      onPress={() => handleCardPress(item)}
-   >
-     <TouchableOpacity style={styles.logoContainer(selectedExercise, item)}>
-       <Image
-         source={{ uri: item.gifUrl }}
-         resizeMode="cover"
-         style={styles.logoImage}
-       />
-     </TouchableOpacity>
-     <View style={styles.tabsContainer}>
-       <Text style={styles.location} numberOfLines={1}>
-         {item.bodyPart}
-       </Text>
-     </View>
-     <View style={styles.infoContainer}>
-       <Text style={styles.exerciseName(selectedExercise, item)} numberOfLines={1}>
+>
+<View style={styles.logoContainer}>
+<Image source={{ uri: item?.image }} resizeMode="cover" style={styles.logoImage} />
+</View>
+<View style={styles.infoContainer}>
+<Text style={styles.exerciseName(selectedExercise, item)} numberOfLines={1}>
          {item.name}
-       </Text>
-       <View style={styles.infoWrapper}>
-         <Text style={styles.publisher(selectedExercise, item)}>
-           {item.target}
-         </Text>
-       </View>
-     </View>
-     <Text style={styles.location} numberOfLines={4}>
-       {item.instructions}
-     </Text>
-   </TouchableOpacity>
+</Text>
+<Text style={styles.title}>{item.title}</Text>
+<Text style={styles.bodyPart}>{item.target}</Text>
+<Text style={styles.instructions} numberOfLines={3}>
+         {item.instructions}
+</Text>
+</View>
+</TouchableOpacity>
  );
-
  return (
-  <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.darkBackground }}>
-    <ScreenHeaderBtn />
-    {isLoading ? (
-      <ActivityIndicator size="large" color={COLORS.primary} />
-    ) : favorites.length === 0 ? (
-      <Text style={styles.headerTitle}>No favorite items found.</Text>
-    ) : (
-      <FlatList
-        data={favorites}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={renderExerciseCard}
-        contentContainerStyle={{ paddingBottom: 20 }}
-        horizontal // Jos haluat vaakasuunnan, muuten poista tämä
-        showsHorizontalScrollIndicator={false}
-      />
-    )}
-  </SafeAreaView>
-);
-
+<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+<ScreenHeaderBtn />
+     {isLoading ? (
+<ActivityIndicator size="large" color={COLORS.primary} />
+     ) : favorites.length === 0 ? (
+<Text style={styles.headerTitle}>No favorite items found.</Text>
+     ) : (
+<FlatList
+         data={favorites}
+         keyExtractor={(item) => item.id.toString()}
+         renderItem={renderExerciseCard}
+         contentContainerStyle={{ paddingBottom: 20 }}
+         showsVerticalScrollIndicator={false} // Ei näytetä scrollbaria
+       />
+     )}
+</SafeAreaView>
+ );
 };
-
 const styles = StyleSheet.create({
  container: (selectedExercise, item) => ({
-   width: 270,
+   width: "90%", // Tehdään kortista leveämpi
+   alignSelf: "center", // Keskittää kortin
    padding: SIZES.xLarge,
-   marginHorizontal: SIZES.small,
-   marginTop: SIZES.xLarge,
-   backgroundColor: selectedExercise === item.id ? COLORS.darkText : "#FFF",
+   marginBottom: SIZES.medium, // Lisää tilaa korttien väliin
+   backgroundColor: "f0f0f0",
    borderRadius: SIZES.medium,
    justifyContent: "space-between",
    ...SHADOWS.medium,
@@ -113,61 +91,47 @@ const styles = StyleSheet.create({
  headerTitle: {
    fontSize: SIZES.large,
    fontFamily: FONT.medium,
-   color: COLORS.primary,
+   color: "#000000",
    textAlign: "center",
    marginTop: 20,
  },
- favoritesHeader: {
-   fontSize: 18,
-   fontFamily: FONT.medium,
-   color: "#FF4500",
-   fontWeight: "bold",
-   textAlign: "center",
-   marginBottom: 20,
- },
- logoContainer: (selectedExercise, item) => ({
+ logoContainer: {
    width: "100%",
-   height: 140,
+   height: 150,
    borderRadius: SIZES.medium,
    justifyContent: "center",
    alignItems: "center",
- }),
+   overflow: "hidden",
+ },
  logoImage: {
    width: "100%",
    height: "100%",
-   borderRadius: SIZES.large,
- },
- tabsContainer: {
-   paddingVertical: SIZES.small / 2,
-   paddingHorizontal: SIZES.small,
-   marginTop: SIZES.medium,
-   width: "100%",
  },
  infoContainer: {
-   marginTop: SIZES.large,
+   marginTop: SIZES.medium,
  },
  exerciseName: (selectedExercise, item) => ({
    fontSize: SIZES.large,
    fontFamily: FONT.medium,
    color: selectedExercise === item.id ? COLORS.white : COLORS.darkText,
  }),
- infoWrapper: {
-   flexDirection: "row",
-   marginTop: 5,
-   justifyContent: "flex-start",
-   alignItems: "center",
- },
- publisher: (selectedExercise, item) => ({
-   fontSize: SIZES.medium - 2,
+ targetMuscle: {
+   fontSize: SIZES.medium,
    fontFamily: FONT.regular,
-   color: selectedExercise === item.id ? COLORS.white : COLORS.primary,
- }),
- location: {
+   color: COLORS.primary,
+   marginTop: 5,
+ },
+ bodyPart: {
    fontSize: SIZES.medium - 2,
    fontFamily: FONT.regular,
    color: "#B3AEC6",
-   marginTop: SIZES.small,
+   marginTop: 3,
+ },
+ instructions: {
+   fontSize: SIZES.small,
+   fontFamily: FONT.regular,
+   color: COLORS.gray,
+   marginTop: 5,
  },
 });
-
 export default Favourites;

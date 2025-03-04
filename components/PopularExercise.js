@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: SIZES.large,
         fontFamily: FONT.medium,
-        color: COLORS.primary,
+        color: "#00000",
     },
     headerBtn: {
         fontSize: SIZES.medium,
@@ -117,14 +117,14 @@ const styles = StyleSheet.create({
     },
     logoContainer: (selectedMeditation, item) => ({
         width: "100%",
-        height: 140,
+        height: 190,
         borderRadius: SIZES.medium,
         justifyContent: "center",
         alignItems: "center",
     }),
     logoImage: {
         width: "100%",
-        height: "100%",
+        height: 190,
         borderRadius: SIZES.large,
     },
     tabsContainer: {
@@ -145,23 +145,23 @@ const styles = StyleSheet.create({
         borderColor: COLORS.gray2,
     },
     infoContainer: {
-        marginTop: SIZES.large,
+        //marginTop: SIZES.large,
     },
     meditationName: (selectedMeditation, item) => ({
         fontSize: SIZES.large,
         fontFamily: FONT.medium,
-        color: selectedMeditation === item.id ? COLORS.white : COLORS.primary,
+        color: "#000000",
     }),
     infoWrapper: {
         flexDirection: "row",
-        marginTop: 5,
+        marginTop: 3,
         justifyContent: "flex-start",
         alignItems: "center",
     },
     publisher: (selectedMeditation, item) => ({
         fontSize: SIZES.medium - 2,
         fontFamily: FONT.regular,
-        color: selectedMeditation === item.id ? COLORS.white : COLORS.primary,
+        color: "#000000",
     }),
     location: {
         fontSize: SIZES.medium - 2,

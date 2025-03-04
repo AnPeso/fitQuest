@@ -91,7 +91,7 @@ const Settings = () => {
               style={{
                 fontFamily: FONT.bold,
                 fontSize: SIZES.xLarge,
-                color: COLORS.primary,
+                color: "#00000",
                 marginTop: 2,
               }}
             >
@@ -137,7 +137,7 @@ const Settings = () => {
                   style={{
                     fontSize: SIZES.medium,
                     fontFamily: "DMBold",
-                    color: COLORS.primary,
+                    color: "#00000",
                   }}
                   numberOfLines={1}
                 >
@@ -191,7 +191,7 @@ const Settings = () => {
                 style={{
                   fontSize: SIZES.medium,
                   fontFamily: "DMBold",
-                  color: COLORS.primary,
+                  color: "#00000",
                 }}
                 numberOfLines={1}
               >

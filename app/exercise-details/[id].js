@@ -67,7 +67,7 @@ const ExerciseDetails = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 , backgroundColor: "#fafbfc"}}>
       <ScreenHeaderBtn detailPage={true} handleShare={onShare} />
       <ScrollView
         showsVerticalScrollIndicator={false}
