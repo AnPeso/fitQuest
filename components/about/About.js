@@ -1,12 +1,14 @@
 import { View, Text } from "react-native";
 import styles from "./About.style";
-const About = ({ exercise }) => {
+const About = ({ exerciseTitle, duration, target, shortDescription, description }) => {
  return (
 <View style={styles.container}>
-<Text style={styles.headText}>Details about {exercise?.name}:</Text>
+<Text style={styles.headText}>Details about {exerciseTitle}:</Text>
 <View style={styles.contentBox}>
-<Text style={styles.contextText}>Equipment: {exercise?.equipment} </Text>
-<Text style={styles.contextText}>Target muscle: {exercise?.target} </Text>
+       {/* Näytetään lisätyt kentät */}
+<Text style={styles.contextText}>Target muscle: {target}</Text>
+<Text style={styles.contextText}>Duration: {duration}</Text>
+<Text style={styles.contextText}>Description: {description}</Text>
 </View>
 </View>
  );

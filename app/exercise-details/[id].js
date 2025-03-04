@@ -22,13 +22,13 @@ import useFetch from "../../hook/useFetch";
 
 const tabs = ["About", "Instructions"];
 
-const MeditationDetails = () => {
+const ExerciseDetails = () => {
   const params = useGlobalSearchParams();
   const id = params.id;
   const { data, isLoading, error, refetch } = useFetch("search", {
     query: id,
   });
-  const meditationItem = useFetch().getItemById(parseInt(id, 10));
+  const exerciseItem = useFetch().getItemById(parseInt(id, 10));
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -41,7 +41,7 @@ const MeditationDetails = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `Check out this meditation: ${meditationItem.title} (${meditationItem.duration})`,
+        message: `Check out this meditation: ${exerciseItem.title} (${exerciseItem.duration})`,
       });
       if (result.action === Share.dismissedAction) {
         // Share dismissed
@@ -54,9 +54,13 @@ const MeditationDetails = () => {
   const displayTabContent = () => {
     switch (activeTab) {
       case "About":
-        return <About item={meditationItem} />;
+        return <About exerciseTitle={exerciseItem.title}
+        duration={exerciseItem.duration}
+        target={exerciseItem.target}
+        shortDescription={exerciseItem.shortDescription}
+        description={exerciseItem.description} />;
       case "Instructions":
-        return <Text>{meditationItem.instructions}</Text>;
+        return <Text>{exerciseItem.instructions}</Text>;
       default:
         return null;
     }
@@ -75,15 +79,15 @@ const MeditationDetails = () => {
           <ActivityIndicator size="large" color={COLORS.primary} />
         ) : error ? (
           <Text>Something went wrong</Text>
-        ) : !meditationItem || meditationItem.length === 0 ? (
+        ) : !exerciseItem || exerciseItem.length === 0 ? (
           <Text>No data available</Text>
         ) : (
           <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
             <ExerciseTopDisplay
-              meditationImage={meditationItem.image}
-              meditationTitle={meditationItem.title}
-              duration={meditationItem.duration}
-              target={meditationItem.target}
+              exerciseImage={exerciseItem.image}
+              exerciseTitle={exerciseItem.title}
+              duration={exerciseItem.duration}
+              target={exerciseItem.target}
             />
             <Tabs
               tabs={tabs}
@@ -94,7 +98,7 @@ const MeditationDetails = () => {
           </View>
         )}
       </ScrollView>
-      <Footer data={meditationItem} />
+      <Footer data={exerciseItem} />
     </SafeAreaView>
   );
 };
@@ -129,4 +133,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MeditationDetails;
+export default ExerciseDetails;

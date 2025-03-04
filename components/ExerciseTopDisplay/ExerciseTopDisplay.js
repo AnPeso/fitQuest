@@ -2,18 +2,18 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import styles from "./ExerciseTopDisplay.style";
 
-const ExerciseTopDisplay = ({ meditationImage, meditationTitle, duration, target }) => {
+const ExerciseTopDisplay = ({ exerciseImage, exerciseTitle, duration, target }) => {
     return (
         <View style={styles.container}>
             <View style={styles.logoBox}>
                 <Image
-                    source={{ uri: meditationImage }}
+                    source={{ uri: exerciseImage }}
                     resizeMode="cover"
                     style={styles.logoImage}
                 />
             </View>
             <View style={styles.meditationTitleBox}>
-                <Text style={styles.meditationTitle}>{meditationTitle}</Text>
+                <Text style={styles.meditationTitle}>{exerciseTitle}</Text>
             </View>
             <View style={styles.meditationInfoBox}>
                 <Text style={styles.meditationName}>{target} / </Text>
