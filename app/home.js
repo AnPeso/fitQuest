@@ -4,9 +4,10 @@ import { COLORS, SIZES } from "../constants/theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ScreenHeaderBtn from "../components/ScreenHeaderBtn";
 import Welcome from "../components/Welcome";
-import Exercises from "../components/Exercises";
-import DailyQuote from "../components/DailyQuote";
 import PopularExercise from "../components/PopularExercise";
+import DailyExercise from "../components/DailyExercise";
+import DailyQuote from "../components/DailyQuote";
+import PickerMenu from "../components/Picker";
 
 const Home = () => {
     const [userDetails, setUserDetails] = useState(null);
@@ -20,20 +21,21 @@ const Home = () => {
   };
     return (
      <>
-  <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite}}>
+  <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
      <ScreenHeaderBtn/>
-      <ScrollView showsVerticalScrollIndicator={false}  >
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
             flex: 1,
             padding: SIZES.medium,
+            
           }}
           testID="screensDisplay"
         >
 <Welcome userDetails={userDetails ? JSON.parse(userDetails) : null} />
 <DailyQuote/>
 <PopularExercise />
-<Exercises/>
+<PickerMenu />
 </View>
       </ScrollView>
     </SafeAreaView>
