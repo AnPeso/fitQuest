@@ -61,7 +61,7 @@ const ExerciseDetails = () => {
          />
        );
      case "Instructions":
-       return <Text>{exerciseItem.instructions}</Text>;
+       return <Text style={{  color: isDarkMode ? "#ddd" : "#333" }}>{exerciseItem.instructions}</Text>;
      default:
        return null;
    }

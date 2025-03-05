@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
-
 import { COLORS, FONT, SIZES } from "../../constants";
+
 
 const styles = StyleSheet.create({
   container: {
@@ -9,10 +9,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 contextText: {
-    marginTop: SIZES.small / 2,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+  fontSize: SIZES.medium,
+  fontFamily: FONT.regular,
   },
   logoBox: {
     width: "100%",
@@ -44,9 +42,8 @@ contextText: {
     alignItems: "center",
   },
   headText: {
-    fontSize: SIZES.medium - 2,
-    color: COLORS.darkText,
-    fontFamily: FONT.medium,
+    fontSize: SIZES.medium,
+    marginBottom: SIZES.small / 2,
   },
   durationBox: {
     flexDirection: "row",

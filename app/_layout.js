@@ -6,10 +6,20 @@ import { ActivityIndicator, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ThemeProvider } from "../context/ThemeProvider";
 import ScreenHeaderBtn from '../components/ScreenHeaderBtn';
+import * as Notifications from 'expo-notifications';
 
 export const unstable_settings = {
   initialRouteName: "login",
 };
+
+// Set the notification handler
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: true,
+  }),
+});
 
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
