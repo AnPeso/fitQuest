@@ -43,7 +43,7 @@ const ThemeChange = () => {
              marginVertical: SIZES.small,
            }}
 >
-           {isDarkMode ? "Dark Mode" : "Light Mode"}
+<Text>Dark Mode</Text>
 </Text>
 <Switch
            trackColor={{ false: COLORS.gray, true: COLORS.primary }}

@@ -6,7 +6,7 @@ const Welcome = ({ userDetails }) => {
  const { theme } = useTheme(); // Get the current theme (dark or light)
  const isDarkMode = theme === "dark"; // Check if it's dark mode
  return (
-<View style={[styles.container, { backgroundColor: isDarkMode ? "#121212" : "#fff" }]}>
+<View style={[styles.container, { backgroundColor: isDarkMode ? "#121212" : "fff" }]}>
 <View style={styles.textContainer}>
 <Text style={[styles.userName, { color: isDarkMode ? COLORS.white : COLORS.secondary }]}>
          Hello {userDetails?.userName}!
@@ -20,7 +20,6 @@ const Welcome = ({ userDetails }) => {
 };
 const styles = StyleSheet.create({
  container: {
-   flex: 1,
    justifyContent: "center",
    alignItems: "center",
 
@@ -41,8 +40,8 @@ const styles = StyleSheet.create({
    justifyContent: "center",
    alignItems: "center",
    flexDirection: "row",
-   marginTop: SIZES.large,
-   height: 50,
+ //  marginTop: SIZES.large,
+   //height: 50,
  },
  searchWrapper: {
    flex: 1,
