@@ -40,35 +40,51 @@ const DailyReminders = () => {
     const futureReminders = allReminders.filter((reminder) => new Date(reminder.triggerDate) > new Date());
     setReminders(futureReminders);
   };
-
   const handleAddReminder = async () => {
     if (!selectedDate) {
       alert("Please select a date.");
       return;
     }
-
+  
     const [inputHours, inputMinutes] = manualTime.split(":").map((item) => parseInt(item, 10));
     const triggerDate = new Date(selectedDate);
-
+  
+    // Asetetaan aika valitun ajan mukaan
     if (!isNaN(inputHours) && !isNaN(inputMinutes)) {
       triggerDate.setHours(inputHours, inputMinutes, 0, 0);
     } else {
       triggerDate.setHours(selectedTime.getHours(), selectedTime.getMinutes(), 0, 0);
     }
+  
+    // Varmistetaan, että aika on oikein asetettu
+    console.log("Trigger Time (triggerDate):", triggerDate);
+  
+  // Poistetaan sekunnit ja millisekunnit, jotta vertailu toimii
+const now = new Date();
+now.setSeconds(0, 0);  // Poistetaan sekunnit ja millisekunnit nykyhetkeltä
 
-    if (triggerDate <= new Date()) {
-      alert("Please select a future time.");
-      return;
-    }
+// Triggerin aika paikallisessa aikavyöhykkeessä
+const localTriggerDate = new Date(triggerDate.getTime() - (triggerDate.getTimezoneOffset() * 60000));
 
+console.log("Local Current Time (localNow):", now);
+console.log("Trigger Time (triggerDate):", triggerDate);
+console.log("Local Trigger Time (localTriggerDate):", localTriggerDate);
+
+// Vertailu
+if (localTriggerDate <= now) {
+  alert("Please select a future time.");
+  return;
+}
+
+  
     const newReminder = {
       id: Date.now(),
       date: selectedDate,
-      time: manualTime || triggerDate.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      time: manualTime || localTriggerDate.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       description: `Reminder: Time for your daily task!`,
-      triggerDate: triggerDate.toISOString(),
+      triggerDate: localTriggerDate.toISOString(),
     };
-
+  
     try {
       const updatedReminders = [...reminders, newReminder];
       await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
@@ -79,6 +95,8 @@ const DailyReminders = () => {
       alert("Error adding reminder.");
     }
   };
+  
+  
 
   const scheduleNotification = async (reminder) => {
     const triggerDate = new Date(reminder.triggerDate);
