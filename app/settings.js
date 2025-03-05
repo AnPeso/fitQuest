@@ -31,7 +31,7 @@ const Settings = () => {
      title: "Daily Reminders",
      icon: "https://cdn-icons-png.flaticon.com/512/109/109613.png",
      target: "Mental Health",
-     route: "DailyReminders",
+     route: "settings/DailyReminders",
    },
  ];
  const loadUserDetails = async () => {
