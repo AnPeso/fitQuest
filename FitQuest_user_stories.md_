@@ -1,0 +1,331 @@
+# FitQuest User Story
+
+User Stories for Login/Registration Page
+
+User Story 1: User Registration
+Title:
+As a user, I want to register by entering my username, email, and password, so that I can create an account.
+
+Acceptance Criteria:
+
+Users can enter valid details and click "Sign Up" to create an account.
+
+An error message is shown if any input is invalid or missing.
+
+Successful registration redirects users to the login page.
+
+Story Points: 3
+
+User Story 2: User Login
+Title:
+As a user, I want to log in using my email and password, so that I can access my account.
+
+Acceptance Criteria:
+
+Users can log in with correct credentials and are redirected to their dashboard.
+
+An error message is displayed for incorrect credentials.
+
+Story Points: 2
+
+User Story 3: Input Validation Feedback
+Title:
+As a user, I want to receive feedback when I attempt to sign up or log in without entering details, so that I can fix the errors.
+
+Acceptance Criteria:
+
+Error messages are displayed for missing fields on sign-up or login attempts.
+
+Real-time validation highlights invalid input fields before form submission.
+
+Disabled "Sign Up" and "Login" buttons if required fields are empty.
+
+Story Points: 3
+
+User Story 4: Persistent User Data
+Title:
+As a user, I want my details to be stored in local storage, so that my data persists between sessions.
+
+Acceptance Criteria:
+
+User details are saved in local storage after registration.
+
+Stored credentials are used for authentication during login.
+
+Users can opt to "Stay Logged In" for automatic login in future sessions.
+
+Story Points: 3
+
+
+User stories for the homepage
+User Story 1: Personalized Greeting
+Title:
+As a user, I want a personalized greeting with my name and a title, so that I feel welcomed and encouraged to practice.
+
+Acceptance Criteria:
+
+Display “Hello, [username]” followed by the title “Ready to move, challenge yourself and have fun?”
+The username should be dynamically fetched and displayed upon login.
+The greeting should be visually prominent on the homepage.
+Story Points: 2
+
+User Story 2: Popular Exercises Cards
+Title:
+As a user, I want to see popular exercise cards, so that I can explore options based on my preferences.
+
+Acceptance Criteria:
+
+Display exercise cards with an image, title, and short description.
+Each card includes categories for different muscles and duration (e.g., 10 or 15 minutes).
+Users can click a card to view more details or start the exercise.
+Story Points: 3
+
+User Story 3: Daily Workout
+Title:
+As a user, I want a daily featured workout, so that I can quickly access a recommended exercise.
+
+Acceptance Criteria:
+
+Showcase one workout in a dedicated section with an image, title, category, and duration.
+The featured workout updates daily based on recommendations or trending exercises.
+Users can tap the featured exercise to start the session immediately.
+Story Points: 3
+
+User Story 4: Intuitive Navigation
+Title:
+As a user, I want intuitive navigation icons, so that I can easily move around the app.
+
+Acceptance Criteria:
+
+Display a logo in the top-left corner that navigates back to the homepage.
+Display a settings icon in the top-right corner for accessing user preferences.
+Ensure icons are clearly visible and accessible on all screen sizes.
+Story Points: 2
+
+user stories for the detailed screen
+User Story 1: About Section
+Title:
+As a user, I want an “About” section for each exercise, so that I can understand its benefits and purpose.
+
+Acceptance Criteria:
+
+Display a brief description of the exercise.
+The description should be concise yet informative, providing context for users.
+Ensure the text is visually distinct and easy to read.
+Story Points: 2
+
+User Story 2: Instructions Section
+Title:
+As a user, I want an “Instructions” section for each exercise, so that I can perform it correctly.
+
+Acceptance Criteria:
+
+Provide step-by-step guidance for completing the workout.
+Ensure the instructions are clear and structured for easy understanding.
+Include visual aids or bullet points for better readability.
+Story Points: 3
+
+User Story 3: Add to Favorites Button
+Title:
+As a user, I want an “Add to Favorites” button, so that I can easily save an exercise for future practice.
+
+Acceptance Criteria:
+
+Include a prominent “Add to Favorites” button at the bottom of the page.
+When clicked, the exercise is added to the user’s favorites list.
+Display confirmation feedback (e.g., a checkmark or a message like "Added to Favorites").
+Story Points: 2
+
+User Story 4: Navigation Icons
+Title:
+As a user, I want navigation icons for sharing and going back, so that I can easily manage the exercise page.
+
+Acceptance Criteria:
+
+Display a back icon at the top-left corner to return to the previous screen.
+Display a share icon at the top-right corner for sharing the exercise with others.
+Ensure icons are visually clear and accessible on all screen sizes.
+Story Points: 2
+
+User stories for the add to favorites functionality
+User Story 1: Add an Item to Favorites
+Title:
+As a user, I want to add an item to my Favorites, so that I can save activities or articles I like for quick access later.
+
+Acceptance Criteria:
+
+A heart icon with the text “Add to Favorites” is displayed next to each item.
+An outlined heart indicates the item is not in Favorites.
+Tapping the button adds the item to the Favorites list, updates the button text to “Remove from Favorites,” and changes the heart icon to filled.
+Story Points: 3
+
+User Story 2: Remove an Item from Favorites
+Title:
+As a user, I want to remove an item from my Favorites, so that I can manage my saved content.
+
+Acceptance Criteria:
+
+The “Remove from Favorites” button with a filled heart is displayed for items already in Favorites.
+Tapping the button removes the item from the Favorites list and reverts the heart icon to outlined.
+Users can add or remove items anytime, and the button text updates accordingly.
+Story Points: 2
+
+User Story 3: My Favorites Screen
+Title:
+As a user, I want a “My Favorites” screen, so that I can view and manage all my saved items in one place.
+
+Acceptance Criteria:
+
+The “My Favorites” screen displays a list of saved items with their title, category, and duration.
+Users can tap any item to view details or start the activity.
+The Favorites list remains organized for easy browsing and quick access.
+Story Points: 3
+
+
+User stories for daily reminders
+User Story 1: View and Navigate Calendar
+Title:
+As a user, I want to view the calendar for the current month and navigate between months, so that I can easily select dates for reminders.
+
+Acceptance Criteria:
+
+Display the current month with all days visible.
+Provide navigation arrows to move between previous and next months.
+Ensure selected dates are visually highlighted.
+Story Points: 3
+
+User Story 2: Select a Date and Time for a Reminder
+Title:
+As a user, I want to select a date and time for a reminder, so that I can schedule it properly.
+
+Acceptance Criteria:
+
+Display a default text “Selected Date: None” and “Selected Time: 20:44” when no date is chosen, but a default time is pre-selected.
+Allow users to select a specific date from the calendar.
+Provide a time picker for selecting the reminder time.
+Story Points: 3
+
+User Story 3: Add a Reminder
+Title:
+As a user, I want to add a reminder after selecting a time, so that I can schedule it for a future date and time.
+
+Acceptance Criteria:
+
+After selecting a time and date, users can click the “Add Reminder” button to schedule the reminder.
+The reminder is saved and displayed in the reminders list.
+A confirmation message appears after successfully adding a reminder.
+Story Points: 2
+
+User Story 4: View and Manage Reminders List
+Title:
+As a user, I want to see a list of all my reminders, so that I can manage them easily.
+
+Acceptance Criteria:
+
+Display a list of all reminders with their selected date and time.
+Each reminder should be clearly labeled with its scheduled date and time.
+Provide an option to delete a reminder by clicking the red “Delete” button next to it.
+Story Points: 3
+
+User stories for sharing the exercises
+User Story 1: Share Exercises with Others
+Title:
+As a user, I want to easily share recommended exercises with friends or family, so that I can help others discover helpful activities.
+
+Acceptance Criteria:
+
+Provide a clear share button/icon on the exercise detail page for easy sharing.
+When clicked, a share menu appears with multiple platform options (e.g., social media, email, or messaging apps).
+Ensure the shared link or message includes the exercise title, description, and a direct link to the exercise page.
+Story Points: 3
+
+User Story 2: Copy Exercise Link
+Title:
+As a user, I want to copy an exercise link, so that I can manually share it with others.
+
+Acceptance Criteria:
+
+Include a “Copy Link” button in the share menu.
+When clicked, the exercise URL is copied to the clipboard.
+Display a confirmation message (e.g., “Link copied to clipboard”).
+Story Points: 2
+
+User Story 3: Customize Shared Message
+Title:
+As a user, I want to personalize the message before sharing, so that I can add my own thoughts.
+
+Acceptance Criteria:
+
+Before sharing, users can edit a pre-filled message that includes the exercise title and description.
+The message preview should be editable in supported platforms (e.g., email, social media posts).
+Ensure that the final shared message includes a direct link to the exercise.
+Story Points: 3
+
+Create user stories for logout functionality
+User Story 1: Clear and Visible Logout Button
+Title:
+As a user, I want a clear and visible logout button, so that I can easily log out of my account when I’m done using the app.
+
+Acceptance Criteria:
+
+Display a clearly labeled “Logout” button in the app menu or settings page.
+The button should be easily accessible without excessive navigation.
+The logout button should be visually distinct from other actions (e.g., using a different color or icon).
+Story Points: 2
+
+User Story 2: Logout and Redirection
+Title:
+As a user, I want to be redirected to the login page after logging out, so that I can securely access my account next time.
+
+Acceptance Criteria:
+
+Tapping the Logout button should immediately log the user out.
+After logging out, the user is redirected to the login page.
+A confirmation message (e.g., “You have been logged out successfully”) should be displayed.
+Story Points: 2
+
+User Story 3: Clear User Session Data on Logout
+Title:
+As a user, I want my session data to be cleared upon logout, so that my account remains secure.
+
+Acceptance Criteria:
+
+User session tokens and authentication details are removed from local storage upon logout.
+Any cached personal data (e.g., username, preferences) is cleared.
+The app ensures the user must log in again to access their account after logging out.
+Story Points: 3
+
+
+Create user story for change settings
+User Story 1: Toggle Between Light and Dark Mode
+Title:
+As a user, I want to switch between light and dark themes, so that I can reduce eye strain and customize the app’s visual experience.
+
+Acceptance Criteria:
+
+Provide a “Theme” toggle or switch in the settings section for light and dark mode options.
+Allow users to switch between themes seamlessly with immediate visual updates.
+Ensure the selected theme persists when the user reopens the app.
+Story Points: 3
+
+User Story 2: Save and Apply User Preferences
+Title:
+As a user, I want my selected settings to be saved, so that I don’t have to reset them each time I open the app.
+
+Acceptance Criteria:
+
+The app should store user preferences (e.g., theme selection) in local storage or the user’s account.
+When reopening the app, the previously selected settings should be automatically applied.
+Users can reset settings to default if needed.
+Story Points: 2
+
+User Story 3: Access Settings Easily
+Title:
+As a user, I want a dedicated settings page, so that I can easily manage my preferences.
+
+Acceptance Criteria:
+
+Include a settings icon in the navigation bar or menu.
+Tapping the icon opens a well-organized settings page with customization options.
+Ensure settings are easy to understand and modify.
+Story Points: 2
