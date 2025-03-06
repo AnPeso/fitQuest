@@ -24,11 +24,7 @@ Notifications.setNotificationHandler({
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [fontsLoaded] = useFonts({
-  //   DMBold: require("../assets/fonts/DMSans-Bold.ttf"),
-  //   DMMedium: require("../assets/fonts/DMSans-Medium.ttf"),
-  //   DMRegular: require("../assets/fonts/DMSans-Regular.ttf"),
-  // });
+
 
   useEffect(() => {
     const checkLoginState = async () => {

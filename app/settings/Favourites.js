@@ -13,13 +13,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, FONT, SIZES, SHADOWS } from "../../constants/theme";
 import { useRouter } from "expo-router";
 import ScreenHeaderBtn from '../../components/ScreenHeaderBtn';
-import { useTheme } from "../../context/ThemeProvider"; // Import Theme Context
+import { useTheme } from "../../context/ThemeProvider"; 
 
 const Favourites = () => {
   const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const [selectedExercise, setSelectedExercise] = useState(null);
+
   const { theme } = useTheme(); // Get the current theme
   const isDarkMode = theme === "dark"; // Check if dark mode is enabled
 
@@ -135,7 +136,6 @@ const styles = StyleSheet.create({
   instructions: {
     fontSize: SIZES.small,
     fontFamily: FONT.regular,
-    //color: isDarkMode ? "#aaa" : COLORS.gray,
     marginTop: 5,
   },
 });

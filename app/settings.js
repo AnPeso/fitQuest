@@ -4,13 +4,13 @@ import { COLORS, FONT, icons, SHADOWS, SIZES } from "../constants";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ScreenHeaderBtn from "../components/ScreenHeaderBtn";
-import { useTheme } from "../context/ThemeProvider"; // <-- Tuo ThemeContext
+import { useTheme } from "../context/ThemeProvider"; 
 const Settings = () => {
  const [userName, setUserName] = useState("");
  const [userDetails, setUserDetails] = useState(null);
  const router = useRouter();
- const { theme } = useTheme(); // <-- Käytetään teeman kontekstia
- const isDarkMode = theme === "dark"; // <-- Tarkistetaan, onko dark mode päällä
+ const { theme } = useTheme(); 
+ const isDarkMode = theme === "dark"; 
  const settings = [
    {
      id: 1,
@@ -69,7 +69,7 @@ const Settings = () => {
 <SafeAreaView
      style={{
        flex: 1,
-       backgroundColor: isDarkMode ? COLORS.darkBackground : COLORS.lightWhite, // <-- Taustaväri dynaamisesti
+       backgroundColor: isDarkMode ? COLORS.darkBackground : COLORS.lightWhite, 
      }}
 >
 <ScreenHeaderBtn />
@@ -92,7 +92,7 @@ const Settings = () => {
              style={{
                fontFamily: FONT.bold,
                fontSize: SIZES.xLarge,
-               color: isDarkMode ? COLORS.white : "#000000", // <-- Väri dynaamisesti
+               color: isDarkMode ? COLORS.white : "#000000", 
                marginTop: 2,
              }}
 >
@@ -109,7 +109,7 @@ const Settings = () => {
                flexDirection: "row",
                padding: SIZES.medium,
                borderRadius: SIZES.small,
-               backgroundColor: isDarkMode ? COLORS.darkCard : "#FFF", // <-- Taustaväri dynaamisesti
+               backgroundColor: isDarkMode ? COLORS.darkCard : "#FFF", 
                ...SHADOWS.medium,
                shadowColor: COLORS.white,
                marginVertical: SIZES.small,
@@ -137,7 +137,7 @@ const Settings = () => {
                  style={{
                    fontSize: SIZES.medium,
                    fontFamily: "DMBold",
-                   color: isDarkMode ? COLORS.white : "#000000", // <-- Väri dynaamisesti
+                   color: isDarkMode ? COLORS.white : "#000000", 
                  }}
                  numberOfLines={1}
 >
@@ -185,7 +185,7 @@ const Settings = () => {
                style={{
                  fontSize: SIZES.medium,
                  fontFamily: "DMBold",
-                 color: isDarkMode ? COLORS.white : "#000000", // <-- Väri dynaamisesti
+                 color: isDarkMode ? COLORS.white : "#000000", 
                }}
                numberOfLines={1}
 >

@@ -8,11 +8,11 @@ import PopularExercise from "../components/PopularExercise";
 import DailyExercise from "../components/DailyExercise";
 import DailyQuote from "../components/DailyQuote";
 import PickerMenu from "../components/Picker";
-import { useTheme } from "../context/ThemeProvider"; // <-- Tuodaan teema
+import { useTheme } from "../context/ThemeProvider"; 
 
 const Home = () => {
- const { theme } = useTheme(); // <-- Käytetään teemaa
- const isDarkMode = theme === "dark"; // <-- Tarkistetaan, onko dark mode päällä
+ const { theme } = useTheme(); 
+ const isDarkMode = theme === "dark"; 
  const [userDetails, setUserDetails] = useState(null);
 
  useEffect(() => {
@@ -44,7 +44,7 @@ const Home = () => {
    <SafeAreaView
      style={{
        flex: 1,
-       backgroundColor: isDarkMode ? COLORS.darkBackground : COLORS.lightWhite, // <-- Muutetaan taustaväri
+       backgroundColor: isDarkMode ? COLORS.darkBackground : COLORS.lightWhite, 
      }}
    >
      <ScreenHeaderBtn />

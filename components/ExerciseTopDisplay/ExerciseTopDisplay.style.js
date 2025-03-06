@@ -67,9 +67,9 @@ const styles = StyleSheet.create({
  },
  gifImage: {
    width: "100%",
-   height: 250, // Voit säätää korkeutta
+   height: 250, 
    borderRadius: SIZES.medium,
-   resizeMode: "cover", // Voit valita myös "cover", jos haluat, että GIF täyttää koko tilan
+   resizeMode: "cover", 
  },
 });
 export default styles;

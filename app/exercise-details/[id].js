@@ -18,7 +18,9 @@ import { default as Footer } from "../../components/footer/Footer";
 import ScreenHeaderBtn from '../../components/ScreenHeaderBtn';
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetch from "../../hook/useFetch";
-import { useTheme } from "../../context/ThemeProvider"; // <-- Tuo ThemeContext
+import { useTheme } from "../../context/ThemeProvider"; 
+
+
 const tabs = ["About", "Instructions"];
 const ExerciseDetails = () => {
  const params = useGlobalSearchParams();
@@ -42,7 +44,6 @@ const ExerciseDetails = () => {
        message: `Check out this meditation: ${exerciseItem.title} (${exerciseItem.duration})`,
      });
      if (result.action === Share.dismissedAction) {
-       // Share dismissed
      }
    } catch (error) {
      Alert.alert(error.message);
@@ -70,7 +71,7 @@ const ExerciseDetails = () => {
 <SafeAreaView
      style={{
        flex: 1,
-       backgroundColor: isDarkMode ? COLORS.darkBackground : "#fafbfc", // <-- Taustaväri dynaamisesti
+       backgroundColor: isDarkMode ? COLORS.darkBackground : "#fafbfc", 
      }}
 >
 <ScreenHeaderBtn detailPage={true} handleShare={onShare} />

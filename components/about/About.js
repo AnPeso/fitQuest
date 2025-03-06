@@ -2,8 +2,8 @@ import { View, Text } from "react-native";
 import { useTheme } from "../../context/ThemeProvider";
 import styles from "./About.style";
 const About = ({ exerciseTitle, duration, target, shortDescription, description }) => {
-       const { theme } = useTheme(); // <-- Hae teema
-       const isDarkMode = theme === "dark"; // <-- Tarkista, onko tumma tila päällä
+       const { theme } = useTheme();
+       const isDarkMode = theme === "dark"; 
        return (
               <View style={styles.container}>
                 <Text style={[styles.headText, { color: isDarkMode ? "#fff" : "#000" }]}>

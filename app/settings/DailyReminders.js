@@ -28,6 +28,7 @@ const DailyReminders = () => {
    requestPermissions();
    loadReminders();
  }, []);
+
  // Request permissions for notifications
  const requestPermissions = async () => {
    if (Platform.OS === "web") {
@@ -44,6 +45,7 @@ const DailyReminders = () => {
      }
    }
  };
+
  // Load reminders from AsyncStorage
  const loadReminders = async () => {
    const storedReminders = await AsyncStorage.getItem("reminders");
@@ -51,8 +53,9 @@ const DailyReminders = () => {
    const futureReminders = allReminders.filter(reminder => new Date(reminder.triggerDate) > new Date());
    setReminders(futureReminders);
  };
+
+
  // Add reminder
- 
  const handleAddReminder = async () => {
     if (!selectedDate) {
         alert("Please select a date.");
@@ -129,12 +132,15 @@ const DailyReminders = () => {
      });
    }
  };
+
  // Delete reminder
  const deleteReminder = async (id) => {
    const updatedReminders = reminders.filter(reminder => reminder.id !== id);
    await AsyncStorage.setItem("reminders", JSON.stringify(updatedReminders));
    setReminders(updatedReminders);
  };
+
+
  // Reminder UI component
  const Reminder = ({ item }) => (
 <View style={styles.reminderContainer}>
@@ -145,6 +151,8 @@ const DailyReminders = () => {
 </TouchableOpacity>
 </View>
  );
+
+
  return (
 <SafeAreaView style={{ flex: 1, backgroundColor: isDarkMode ? COLORS.darkBackground : COLORS.lightWhite }}>
 <ScreenHeaderBtn />
@@ -183,6 +191,12 @@ const DailyReminders = () => {
 </SafeAreaView>
  );
 };
+
+
+
+
+
+
 // Styles
 const styles = StyleSheet.create({
  reminderContainer: { backgroundColor: COLORS.primary, borderRadius: SIZES.small, padding: SIZES.small, marginVertical: SIZES.small },
@@ -196,4 +210,6 @@ const styles = StyleSheet.create({
  deleteText: { color: "#FE7654", fontWeight: "bold" },
  reminderHeader: { fontSize: SIZES.large, fontWeight: "bold", color: COLORS.primary, marginVertical: SIZES.medium }
 });
+
+
 export default DailyReminders;

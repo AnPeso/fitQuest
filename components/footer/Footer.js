@@ -37,7 +37,7 @@ const Footer = ({ data }) => {
     }, [data]);
 
     if (!data) {
-        return null; // Return null if data is not available
+        return null; 
     }
 
     return (

@@ -7,6 +7,9 @@ import ScreenHeaderBtn from "../../components/ScreenHeaderBtn";
 const ThemeChange = () => {
  const { theme, toggleTheme } = useTheme();
  const isDarkMode = theme === "dark";
+
+
+ 
  return (
 <SafeAreaView
      style={{
