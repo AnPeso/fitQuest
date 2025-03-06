@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert("Validation Error", "Please fill in all fields.");
+      alert("Validation Error: Please fill in all fields.");
       return;
     }
 
@@ -27,12 +27,10 @@ const Login = () => {
         if (userDetails.email === parsedDetails.email && userDetails.password === parsedDetails.password) {
           router.push("/home");
         } else {
-          Alert.alert("Error", "Incorrect email or password.");
-          alert("Error Incorrect email or password.");
+          alert("Error: Incorrect email or password.");
         }
       } else {
-        Alert.alert("Error", "No user details found in AsyncStorage.");
-        alert("Error No user details found in AsyncStorage.");
+        alert("Error: No user details found in AsyncStorage.");
       }
     } catch (error) {
       console.error("Error accessing AsyncStorage", error);

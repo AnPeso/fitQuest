@@ -20,7 +20,7 @@ const SignUp = () => {
 
     const handleRegister = async () => {
         if (!userName || !email || !password) {
-            Alert.alert("Validation Error", "Please fill in all fields.");
+            alert("Validation Error: Please fill in all fields.");
             return;
         }
         const userDetails = { userName, email, password, token: "sample-token" };
